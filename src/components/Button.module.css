@@ -1,0 +1,16 @@
+.button {
+    border-radius: 10px;
+    height: 30px;
+}
+
+.variant_primary {
+    background-color: aqua;
+}
+
+.variant_secondary {
+    background-color: red;
+}
+
+.variant_ok {
+    background-color: blueviolet;
+}
