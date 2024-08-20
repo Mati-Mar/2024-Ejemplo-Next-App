@@ -5,9 +5,9 @@ import Title from "@/components/Title"
 import { useEffect, useState } from "react";
 
 export default function home() {
-    let [cuenta, setCuenta] = useState(0);
-    let [nombre, setNombre] = useState("Anonimo");
-    let [isChecked, setChecked] = useState(false);
+    const [cuenta, setCuenta] = useState(0);
+    const [nombre, setNombre] = useState("Anonimo");
+    const [isChecked, setChecked] = useState(false);
 
     useEffect(() => {
         setCuenta(10);
@@ -15,7 +15,7 @@ export default function home() {
     },[])
 
     useEffect(() => {
-        setCuenta(cuenta += 5);
+        setCuenta(cuenta+5);
     }, [nombre])
 
     useEffect(() => {
@@ -24,21 +24,17 @@ export default function home() {
 
     function incrementar() {
         if (isChecked)
-            setCuenta(++cuenta);
+            setCuenta(cuenta+1);
         else
-            setCuenta(--cuenta);
+            setCuenta(cuenta-1);
     }
 
-    function modificarNombre() {
-        let nuevoNombre = document.getElementById("ingresoNombre").value;
-        setNombre(nuevoNombre)
+    function modificarNombre(event) {
+        setNombre(event.target.value)
     }
     
     function checkState(event) {
-        if (event.target.checked) {
-            setChecked(true);
-        } else
-            setChecked(false);
+        setChecked(event.target.checked);
     }
 
     return(
@@ -48,8 +44,7 @@ export default function home() {
             <Button onClick={incrementar} text="Incrementar"></Button>
 
             <h3>Mi nombre es: {nombre}</h3>
-            <input id="ingresoNombre" placeholder="Ingrese su nombre"/>
-            <Button onClick={modificarNombre} text="Modificar Nombre"></Button>
+            <input id="ingresoNombre" placeholder="Ingrese su nombre" onChange={modificarNombre}/>
 
             <CheckBox onChange={e => checkState(e)} id="sumaresta" text={isChecked ? "Suma" : "Resta"}/>            
         </div>

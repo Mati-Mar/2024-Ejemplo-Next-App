@@ -1,7 +1,22 @@
+"use client"
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import Button from "@/components/Button";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  
+  const router = useRouter();
+
+  function handleClick() {
+    //El metodo push sirve para que el cambio de pantalla se registre en el historial
+    //router.push("/ranking");
+    //Si no quiero que quede el historial de navegación uso el método replace
+    router.replace("/ranking");
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -9,6 +24,15 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.js</code>
         </p>
+
+        <div>
+          <Button onClick={handleClick} text="Sin Link"/>
+          <Link replace={true} href="/home">
+            <Button text="Con Link"/>
+          </Link>
+        </div>
+
+
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

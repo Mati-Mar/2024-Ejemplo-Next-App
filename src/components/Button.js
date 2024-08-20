@@ -14,7 +14,7 @@ export default function Button(props) {
                     [styles.variant_primary]: props.state == "primary",
                     [styles.variant_secondary]: props.state == "secondary",
                     [styles.variant_ok]: props.state == "ok",
-
+ 
                 }
             )} 
             onClick={props.onClick}>{props.text}</button>
