@@ -28,7 +28,7 @@ export default function Home() {
         <div>
           <Button onClick={handleClick} text="Sin Link"/>
           <Link replace={true} href="/home">
-            <Button text="Con Link"/>
+            <Button text="Con Link" />
           </Link>
         </div>
 

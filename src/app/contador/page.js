@@ -13,6 +13,7 @@ export default function ContadorPage() {
         setContador(contador + 5);
     }
 
+    /*
     useEffect(()=> {
         let data = {
             nombre: nombre
@@ -20,15 +21,17 @@ export default function ContadorPage() {
         
         //Haria el fetch
         //Lo declaro como una variable ya que no tengo el back
+        
         var result = fetch("localhost:4000/deportistas", {
             method: "POST",
             body: data
         };
+
         result = [{nombre: "Juan", foto:"Juan.png"},{nombre:"pedro", foto: "asdasdsa"}]
 
         )
     },[])
-
+    */
     useEffect(()=> {
         console.log("Nombre cambio a: " + nombre);
     },[nombre])
